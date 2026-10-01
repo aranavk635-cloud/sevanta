@@ -5,9 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SEVANTA — Digital Work, Simplified</title>
+<meta name="description" content="SEVANTA provides digital assistance, online applications, document services, resume creation, translation and website development.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+:root{
+    --bg:#f7f8fa;
+    --white:#ffffff;
+    --black:#101318;
+    --text:#252a31;
+    --muted:#68707c;
+    --border:#e6e8ec;
+    --accent:#111827;
+    --soft:#eef1f5;
+    --radius:22px;
+    --shadow:0 18px 50px rgba(16,24,40,.08);
+}
 
 *{
     margin:0;
@@ -20,525 +38,722 @@ html{
 }
 
 body{
-    font-family:"DM Sans",Arial,sans-serif;
-    background:#070912;
-    color:#fff;
-    overflow-x:hidden;
+    font-family:"DM Sans",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
 }
 
-/* BACKGROUND */
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-2;
-    background:
-        radial-gradient(circle at 15% 20%,rgba(72,116,255,.25),transparent 30%),
-        radial-gradient(circle at 85% 30%,rgba(171,92,255,.22),transparent 30%),
-        radial-gradient(circle at 50% 90%,rgba(0,211,255,.12),transparent 35%);
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
-body::after{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    border-radius:50%;
-    background:rgba(70,110,255,.08);
-    filter:blur(100px);
-    right:-180px;
-    top:25%;
-    z-index:-1;
-    animation:float 8s ease-in-out infinite alternate;
+button{
+    font-family:inherit;
 }
 
-@keyframes float{
-    from{transform:translateY(-30px) scale(1)}
-    to{transform:translateY(50px) scale(1.15)}
+.container{
+    width:min(1160px,92%);
+    margin:auto;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header{
-    position:fixed;
+    position:sticky;
     top:0;
-    left:0;
-    width:100%;
     z-index:1000;
-    padding:18px 6%;
-    background:rgba(7,9,18,.68);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(0,0,0,.06);
 }
 
 .nav{
-    max-width:1250px;
-    margin:auto;
+    height:76px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 }
 
-/* LOGO */
+/* NORMAL LOGO */
+
 .logo{
-    position:relative;
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.logo-mark{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    background:#111827;
+    display:grid;
+    place-items:center;
     color:white;
-    text-decoration:none;
-    font-size:28px;
-    font-weight:900;
-    letter-spacing:5px;
-    display:inline-block;
+    font-family:"Manrope",sans-serif;
+    font-weight:800;
+    font-size:16px;
+    letter-spacing:-1px;
 }
 
-.logo-line{
-    position:absolute;
-    left:-8px;
-    top:22px;
-    width:190px;
-    height:30px;
-    pointer-events:none;
+.logo-text{
+    font-family:"Manrope",sans-serif;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:2px;
+    color:#111318;
 }
 
-.logo-line::before{
-    content:"Digital Work, Simplified";
-    position:absolute;
-    left:10px;
-    top:-9px;
-    font-family:"Great Vibes",cursive;
-    font-size:20px;
-    font-weight:400;
-    letter-spacing:0;
-    white-space:nowrap;
-    color:#69dcff;
-    transform:rotate(-8deg);
-    text-shadow:0 0 15px rgba(105,220,255,.35);
-}
-
-.logo-line::after{
-    content:"";
-    position:absolute;
-    left:0;
-    top:12px;
-    width:205px;
-    height:2px;
-    background:linear-gradient(90deg,transparent,#69dcff,#a77cff,transparent);
-    transform:rotate(-7deg);
-    box-shadow:0 0 10px rgba(105,220,255,.4);
-}
-
-/* NAV */
 .nav-links{
     display:flex;
     align-items:center;
-    gap:28px;
+    gap:32px;
+    font-size:14px;
+    font-weight:600;
+    color:#555d68;
 }
 
 .nav-links a{
-    color:#cbd1e5;
-    text-decoration:none;
-    font-size:14px;
-    transition:.3s;
+    transition:.2s;
 }
 
 .nav-links a:hover{
-    color:#fff;
+    color:#111827;
 }
 
-.contact-btn{
-    padding:11px 20px;
-    border-radius:30px;
-    color:#fff!important;
-    background:linear-gradient(135deg,#5278ff,#965cff);
-    box-shadow:0 10px 30px rgba(82,120,255,.25);
+.nav-contact{
+    background:#111827;
+    color:white !important;
+    padding:11px 19px;
+    border-radius:10px;
 }
 
-/* HERO */
+.menu-btn{
+    display:none;
+    border:0;
+    background:transparent;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
 .hero{
-    min-height:100vh;
-    padding:160px 7% 100px;
-    display:flex;
-    align-items:center;
+    padding:105px 0 90px;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(17,24,39,.07),transparent 30%),
+        radial-gradient(circle at 90% 70%,rgba(99,102,241,.07),transparent 30%);
 }
 
-.hero-container{
-    max-width:1250px;
-    width:100%;
-    margin:auto;
+.hero-grid{
     display:grid;
-    grid-template-columns:1.15fr .85fr;
+    grid-template-columns:1.05fr .95fr;
     gap:70px;
     align-items:center;
 }
 
 .badge{
-    display:inline-block;
-    padding:8px 15px;
-    border:1px solid rgba(90,220,255,.25);
-    border-radius:50px;
-    color:#68dcff;
-    background:rgba(90,220,255,.06);
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:2px;
-    margin-bottom:25px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:100px;
+    padding:8px 13px;
+    font-size:13px;
+    font-weight:600;
+    color:#555d68;
+    box-shadow:0 5px 20px rgba(0,0,0,.04);
+    margin-bottom:24px;
+}
+
+.badge-dot{
+    width:7px;
+    height:7px;
+    background:#22c55e;
+    border-radius:50%;
 }
 
 .hero h1{
-    font-size:clamp(52px,7vw,92px);
-    line-height:.94;
-    letter-spacing:-5px;
-    margin-bottom:28px;
+    font-family:"Manrope",sans-serif;
+    font-size:clamp(44px,6vw,76px);
+    line-height:1.02;
+    letter-spacing:-3px;
+    color:#111318;
+    margin-bottom:24px;
 }
 
-.gradient{
-    background:linear-gradient(90deg,#fff,#6fe1ff,#a77cff,#fff);
-    background-size:300%;
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    animation:gradient 6s linear infinite;
+.hero h1 span{
+    color:#697386;
 }
 
-@keyframes gradient{
-    from{background-position:0}
-    to{background-position:300%}
-}
-
-.hero p{
-    max-width:670px;
-    color:#a8aec2;
-    line-height:1.8;
-    font-size:17px;
-    margin-bottom:32px;
+.hero-text{
+    max-width:600px;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.75;
+    margin-bottom:34px;
 }
 
 .buttons{
     display:flex;
-    gap:14px;
+    gap:13px;
     flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
-    text-decoration:none;
-    padding:15px 25px;
-    border-radius:50px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 22px;
+    border-radius:12px;
+    font-size:14px;
     font-weight:700;
-    font-size:13px;
+    border:1px solid transparent;
+    transition:.25s;
+    cursor:pointer;
+}
+
+.btn-dark{
+    background:#111827;
+    color:white;
+}
+
+.btn-dark:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 25px rgba(17,24,39,.18);
+}
+
+.btn-light{
+    background:white;
+    border-color:var(--border);
+}
+
+.btn-light:hover{
+    background:#f1f3f6;
+}
+
+/* HERO CARD */
+
+.hero-card{
+    background:#111827;
+    color:white;
+    border-radius:30px;
+    padding:32px;
+    min-height:420px;
+    box-shadow:0 30px 70px rgba(15,23,42,.20);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-card:before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    top:-90px;
+    right:-70px;
+}
+
+.hero-card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+}
+
+.hero-card-title{
+    font-family:"Manrope",sans-serif;
+    font-size:18px;
+    font-weight:700;
+}
+
+.status{
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.1);
+    padding:7px 11px;
+    border-radius:100px;
+    font-size:11px;
+}
+
+.service-list{
+    margin-top:45px;
+    display:grid;
+    gap:12px;
+}
+
+.service-item{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+    padding:17px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.service-item small{
+    color:#aeb5c0;
+}
+
+.service-item strong{
+    font-size:14px;
+}
+
+.arrow{
+    color:#cdd2da;
+}
+
+/* ================= SECTION ================= */
+
+section{
+    padding:100px 0;
+}
+
+.section-head{
+    max-width:680px;
+    margin-bottom:48px;
+}
+
+.eyebrow{
+    color:#667085;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.7px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.section-head h2{
+    font-family:"Manrope",sans-serif;
+    color:#111318;
+    font-size:clamp(32px,4vw,48px);
+    line-height:1.12;
+    letter-spacing:-1.7px;
+    margin-bottom:15px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:16px;
+}
+
+/* ================= SERVICES ================= */
+
+.services{
+    background:white;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.service-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:27px;
+    min-height:225px;
     transition:.3s;
 }
 
-.primary{
-    color:#fff;
-    background:linear-gradient(135deg,#5278ff,#965cff);
-    box-shadow:0 15px 40px rgba(82,120,255,.25);
-}
-
-.primary:hover{
-    transform:translateY(-4px);
-}
-
-.secondary{
-    color:#fff;
-    border:1px solid rgba(255,255,255,.14);
-    background:rgba(255,255,255,.05);
-}
-
-/* 3D CARD */
-.scene{
-    perspective:1000px;
-}
-
-.card3d{
-    position:relative;
-    width:350px;
-    height:390px;
-    margin:auto;
-    transform-style:preserve-3d;
-    transition:transform .15s ease;
-}
-
-.main-card{
-    position:absolute;
-    inset:40px 20px;
-    border-radius:30px;
-    padding:35px;
-    background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.035));
-    border:1px solid rgba(255,255,255,.17);
-    backdrop-filter:blur(20px);
-    box-shadow:0 40px 80px rgba(0,0,0,.45);
-    transform:rotateX(8deg) rotateY(-10deg);
-}
-
-.main-card h2{
-    font-size:30px;
-    letter-spacing:3px;
-}
-
-.main-card p{
-    color:#aab1c8;
-    margin-top:10px;
-}
-
-.card-tag{
-    display:inline-block;
-    margin-top:40px;
-    padding:9px 14px;
-    border-radius:30px;
-    background:rgba(91,124,255,.15);
-    border:1px solid rgba(91,124,255,.25);
-    color:#70dcff;
-    font-size:12px;
-}
-
-.floating{
-    position:absolute;
-    padding:13px 17px;
-    border-radius:15px;
-    background:rgba(20,23,40,.9);
-    border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 20px 40px rgba(0,0,0,.3);
-    font-size:12px;
-}
-
-.f1{
-    right:-5px;
-    top:35px;
-}
-
-.f2{
-    left:-10px;
-    bottom:35px;
-}
-
-/* SECTIONS */
-section{
-    padding:110px 7%;
-}
-
-.container{
-    max-width:1250px;
-    margin:auto;
-}
-
-.heading{
-    text-align:center;
-    max-width:750px;
-    margin:0 auto 60px;
-}
-
-.heading small{
-    color:#68dcff;
-    letter-spacing:3px;
-    font-size:11px;
-    font-weight:800;
-}
-
-.heading h2{
-    font-size:clamp(36px,5vw,60px);
-    line-height:1;
-    letter-spacing:-2px;
-    margin:15px 0;
-}
-
-.heading p{
-    color:#969db4;
-}
-
-/* DISCOUNT */
-.discount{
-    margin-bottom:70px;
-}
-
-.discount-box{
-    padding:25px;
-    border-radius:22px;
-    text-align:center;
-    background:linear-gradient(135deg,rgba(91,124,255,.13),rgba(155,92,255,.12));
-    border:1px solid rgba(120,150,255,.18);
-}
-
-.discount-box strong{
-    color:#72ddff;
-    font-size:24px;
-}
-
-/* SERVICES */
-.services{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
-.service{
-    min-height:245px;
-    padding:30px;
-    border-radius:24px;
-    background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025));
-    border:1px solid rgba(255,255,255,.1);
-    transition:.35s;
-    transform-style:preserve-3d;
-}
-
-.service:hover{
-    transform:translateY(-10px) rotateX(3deg) rotateY(-3deg);
-    border-color:rgba(105,220,255,.3);
-    box-shadow:0 25px 50px rgba(0,0,0,.25);
+.service-card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+    border-color:#d8dce3;
 }
 
 .icon{
-    width:55px;
-    height:55px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:16px;
-    background:linear-gradient(135deg,rgba(82,120,255,.22),rgba(150,92,255,.15));
-    font-size:24px;
-    margin-bottom:22px;
+    width:45px;
+    height:45px;
+    border-radius:13px;
+    background:#f0f2f5;
+    display:grid;
+    place-items:center;
+    font-size:19px;
+    margin-bottom:24px;
 }
 
-.service h3{
-    margin-bottom:10px;
+.service-card h3{
+    font-family:"Manrope",sans-serif;
+    font-size:18px;
+    margin-bottom:8px;
+    color:#16191e;
 }
 
-.service p{
-    color:#9299af;
+.service-card p{
+    color:var(--muted);
     font-size:14px;
     line-height:1.7;
 }
 
-.service a{
-    display:inline-block;
-    margin-top:18px;
-    color:#68dcff;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:700;
+/* ================= SAVINGS ================= */
+
+.savings{
+    padding-top:70px;
+    padding-bottom:70px;
 }
 
-/* PROCESS */
-.process{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-.process-card{
-    padding:30px;
-    border-left:1px solid rgba(255,255,255,.15);
-}
-
-.number{
-    color:#5c7cff;
-    font-size:40px;
-    font-weight:900;
-    margin-bottom:15px;
-}
-
-.process-card p{
-    color:#9299af;
-    font-size:14px;
-    margin-top:10px;
-}
-
-/* ABOUT */
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
-}
-
-.about h2{
-    font-size:clamp(40px,5vw,65px);
-    line-height:1;
-    letter-spacing:-3px;
-    margin-bottom:25px;
-}
-
-.about p{
-    color:#9ba2b8;
-    line-height:1.9;
-    margin-bottom:15px;
-}
-
-.about-card{
-    min-height:350px;
-    border-radius:30px;
+.savings-box{
+    background:#111827;
+    color:white;
+    border-radius:26px;
+    padding:38px 42px;
     display:flex;
     align-items:center;
-    justify-content:center;
-    text-align:center;
-    background:linear-gradient(135deg,rgba(82,120,255,.16),rgba(155,92,255,.12));
-    border:1px solid rgba(255,255,255,.1);
-    transform:perspective(900px) rotateY(-7deg);
-}
-
-.about-card strong{
-    display:block;
-    font-size:55px;
-    letter-spacing:5px;
-}
-
-/* CONTACT */
-.contact-box{
-    text-align:center;
-    padding:80px 30px;
-    border-radius:35px;
-    background:linear-gradient(135deg,rgba(82,120,255,.16),rgba(155,92,255,.12));
-    border:1px solid rgba(255,255,255,.12);
-}
-
-.contact-box h2{
-    font-size:clamp(40px,6vw,70px);
-    margin-bottom:20px;
-}
-
-.contact-box p{
-    color:#9ca3b8;
-    margin-bottom:30px;
-}
-
-/* FOOTER */
-footer{
-    padding:45px 7% 25px;
-    border-top:1px solid rgba(255,255,255,.08);
-}
-
-.footer{
-    max-width:1250px;
-    margin:auto;
-    display:flex;
     justify-content:space-between;
     gap:30px;
 }
 
-.footer-logo{
-    font-size:27px;
-    font-weight:900;
-    letter-spacing:5px;
+.savings-box h3{
+    font-family:"Manrope",sans-serif;
+    font-size:28px;
+    margin-bottom:8px;
 }
 
-.footer p{
-    color:#747b91;
+.savings-box p{
+    color:#b9c0cb;
+    max-width:650px;
+    font-size:14px;
+}
+
+/* ================= PROCESS ================= */
+
+.process{
+    background:#f7f8fa;
+}
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.process-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:30px;
+}
+
+.number{
+    font-family:"Manrope",sans-serif;
     font-size:13px;
-    margin-top:8px;
+    font-weight:800;
+    color:#89919e;
+    margin-bottom:35px;
 }
 
-.copy{
-    max-width:1250px;
-    margin:30px auto 0;
-    padding-top:20px;
-    border-top:1px solid rgba(255,255,255,.08);
-    color:#62697e;
+.process-card h3{
+    font-family:"Manrope",sans-serif;
+    margin-bottom:9px;
+    font-size:20px;
+}
+
+.process-card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:white;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:80px;
+    align-items:center;
+}
+
+.about-box{
+    background:#111827;
+    color:white;
+    border-radius:28px;
+    padding:42px;
+    min-height:330px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+}
+
+.about-box .big{
+    font-family:"Manrope",sans-serif;
+    font-size:54px;
+    font-weight:800;
+    line-height:1;
+    margin-bottom:12px;
+}
+
+.about-box p{
+    color:#b8bfca;
+    font-size:14px;
+}
+
+.about-content h2{
+    font-family:"Manrope",sans-serif;
+    font-size:42px;
+    letter-spacing:-1.5px;
+    line-height:1.15;
+    margin-bottom:20px;
+}
+
+.about-content p{
+    color:var(--muted);
+    margin-bottom:18px;
+    font-size:15px;
+}
+
+.points{
+    display:grid;
+    gap:12px;
+    margin-top:25px;
+}
+
+.point{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:14px;
+    font-weight:600;
+}
+
+.check{
+    width:21px;
+    height:21px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:#111827;
+    color:white;
+    display:grid;
+    place-items:center;
     font-size:11px;
 }
 
-/* REVEAL */
+/* ================= FAQ ================= */
+
+.faq{
+    background:#f7f8fa;
+}
+
+.faq-grid{
+    max-width:850px;
+    display:grid;
+    gap:12px;
+}
+
+details{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px 22px;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:700;
+    font-size:15px;
+}
+
+details p{
+    color:var(--muted);
+    font-size:14px;
+    margin-top:13px;
+    line-height:1.7;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    background:white;
+}
+
+.contact-box{
+    background:#111827;
+    color:white;
+    border-radius:30px;
+    padding:65px;
+    text-align:center;
+}
+
+.contact-box h2{
+    font-family:"Manrope",sans-serif;
+    font-size:clamp(32px,5vw,52px);
+    line-height:1.1;
+    letter-spacing:-1.8px;
+    margin-bottom:15px;
+}
+
+.contact-box p{
+    color:#b9c0cb;
+    max-width:650px;
+    margin:0 auto 30px;
+    font-size:15px;
+}
+
+.contact-box .btn-light{
+    background:white;
+    color:#111827;
+    border:0;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0b0f15;
+    color:white;
+    padding:45px 0 25px;
+}
+
+.footer-top{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    padding-bottom:35px;
+    border-bottom:1px solid rgba(255,255,255,.09);
+}
+
+.footer-logo{
+    font-family:"Manrope",sans-serif;
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.footer-desc{
+    color:#89919d;
+    max-width:370px;
+    font-size:13px;
+    margin-top:10px;
+}
+
+.footer-links{
+    display:flex;
+    gap:24px;
+    color:#a9b0bb;
+    font-size:13px;
+}
+
+.footer-bottom{
+    padding-top:23px;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    color:#737c89;
+    font-size:12px;
+}
+
+.disclaimer{
+    max-width:650px;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(7px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    background:white;
+    width:min(420px,100%);
+    border-radius:25px;
+    padding:30px;
+    position:relative;
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
+}
+
+.close{
+    position:absolute;
+    right:18px;
+    top:16px;
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:#f0f2f5;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.modal-box h3{
+    font-family:"Manrope",sans-serif;
+    font-size:25px;
+    margin-bottom:7px;
+}
+
+.modal-box p{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:22px;
+}
+
+.contact-options{
+    display:grid;
+    gap:10px;
+}
+
+.contact-option{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:15px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    transition:.2s;
+}
+
+.contact-option:hover{
+    background:#f7f8fa;
+}
+
+.contact-option-icon{
+    width:40px;
+    height:40px;
+    border-radius:11px;
+    background:#111827;
+    color:white;
+    display:grid;
+    place-items:center;
+}
+
+.contact-option strong{
+    display:block;
+    font-size:14px;
+}
+
+.contact-option span{
+    display:block;
+    color:#7a828e;
+    font-size:12px;
+}
+
+/* ================= ANIMATION ================= */
+
 .reveal{
     opacity:0;
-    transform:translateY(45px);
-    transition:.8s ease;
+    transform:translateY(20px);
+    transition:opacity .7s ease,transform .7s ease;
 }
 
 .reveal.show{
@@ -546,139 +761,233 @@ footer{
     transform:translateY(0);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
+
 @media(max-width:850px){
 
     .nav-links{
         display:none;
     }
 
+    .menu-btn{
+        display:block;
+    }
+
     .hero{
-        padding-top:150px;
+        padding:75px 0 65px;
     }
 
-    .hero-container{
+    .hero-grid{
         grid-template-columns:1fr;
-        text-align:center;
+        gap:45px;
     }
 
-    .hero p{
-        margin-left:auto;
-        margin-right:auto;
+    .hero h1{
+        letter-spacing:-2px;
     }
 
-    .buttons{
-        justify-content:center;
+    .hero-card{
+        min-height:auto;
     }
 
-    .card3d{
-        transform:scale(.85);
+    section{
+        padding:75px 0;
     }
 
-    .services{
-        grid-template-columns:1fr;
+    .services-grid{
+        grid-template-columns:1fr 1fr;
     }
 
-    .process{
-        grid-template-columns:1fr;
-    }
-
-    .about{
+    .process-grid{
         grid-template-columns:1fr;
     }
 
-    .about-card{
-        transform:none;
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:35px;
     }
 
-    .footer{
+    .about-box{
+        min-height:260px;
+    }
+
+    .savings-box{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:30px;
+    }
+
+    .contact-box{
+        padding:45px 25px;
+    }
+
+    .footer-top{
         flex-direction:column;
     }
+
+    .footer-bottom{
+        flex-direction:column;
+    }
+
 }
+
+@media(max-width:560px){
+
+    .nav{
+        height:68px;
+    }
+
+    .logo-text{
+        font-size:19px;
+    }
+
+    .logo-mark{
+        width:34px;
+        height:34px;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero-text{
+        font-size:16px;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service-card{
+        min-height:auto;
+    }
+
+    .about-content h2{
+        font-size:34px;
+    }
+
+    .about-box .big{
+        font-size:45px;
+    }
+
+    .footer-links{
+        flex-wrap:wrap;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="nav">
+<!-- ================= HEADER ================= -->
 
-<a href="#home" class="logo">
-SEVANTA
-<span class="logo-line"></span>
+<header>
+<div class="container nav">
+
+<a href="#" class="logo">
+    <div class="logo-mark">S</div>
+    <div class="logo-text">SEVANTA</div>
 </a>
 
-<div class="nav-links">
-<a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#process">Process</a>
-<a href="#about">About</a>
-<a href="#contact" class="contact-btn">CONTACT US</a>
-</div>
+<nav class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="nav-contact">CONTACT US</a>
+</nav>
+
+<button class="menu-btn" onclick="openContact()">☰</button>
 
 </div>
 </header>
 
 
-<section class="hero" id="home">
+<!-- ================= HERO ================= -->
 
-<div class="hero-container">
+<main>
+
+<section class="hero">
+<div class="container hero-grid">
 
 <div class="reveal">
 
-<span class="badge">
-DIGITAL SERVICES • ONLINE ASSISTANCE
-</span>
+<div class="badge">
+    <span class="badge-dot"></span>
+    Digital assistance made simple
+</div>
 
 <h1>
-Your Work.<br>
-<span class="gradient">Made Simple.</span>
+    Your work.<br>
+    <span>Made simple.</span>
 </h1>
 
-<p>
-SEVANTA helps with everyday digital and documentation
-work — from PAN, GST and certificate assistance to
-typing, translation, resumes, online applications and
-professional website development.
+<p class="hero-text">
+    SEVANTA helps with everyday digital work, online applications,
+    document preparation, certificates, resumes, translations,
+    websites and more — with a simple, direct approach.
 </p>
 
 <div class="buttons">
 
-<a href="#contact" class="btn primary">
-CONTACT US
+<button class="btn btn-dark" onclick="openContact()">
+    CONTACT US →
+</button>
+
+<a href="#services" class="btn btn-light">
+    Explore Services
 </a>
 
-<a href="#services" class="btn secondary">
-EXPLORE SERVICES
-</a>
-
 </div>
 
 </div>
 
 
-<div class="scene reveal">
+<div class="hero-card reveal">
 
-<div class="card3d" id="card">
-
-<div class="main-card">
-
-<h2>SEVANTA</h2>
-
-<p>Digital Work, Simplified.</p>
-
-<span class="card-tag">
-FAST • DIRECT • PROFESSIONAL
-</span>
-
+<div class="hero-card-top">
+    <div class="hero-card-title">SEVANTA Services</div>
+    <div class="status">● Available</div>
 </div>
 
-<div class="floating f1">
-⚡ Fast Assistance
+<div class="service-list">
+
+<div class="service-item">
+    <div>
+        <strong>Online Applications</strong><br>
+        <small>Application assistance</small>
+    </div>
+    <span class="arrow">→</span>
 </div>
 
-<div class="floating f2">
-✓ Direct Contact
+<div class="service-item">
+    <div>
+        <strong>Documents & Typing</strong><br>
+        <small>Professional preparation</small>
+    </div>
+    <span class="arrow">→</span>
+</div>
+
+<div class="service-item">
+    <div>
+        <strong>Resume & CV</strong><br>
+        <small>Modern professional formats</small>
+    </div>
+    <span class="arrow">→</span>
+</div>
+
+<div class="service-item">
+    <div>
+        <strong>Website Development</strong><br>
+        <small>Modern websites</small>
+    </div>
+    <span class="arrow">→</span>
 </div>
 
 </div>
@@ -689,360 +998,200 @@ FAST • DIRECT • PROFESSIONAL
 </section>
 
 
-<section>
+<!-- ================= SERVICES ================= -->
 
-<div class="container discount reveal">
+<section class="services" id="services">
 
-<div class="discount-box">
+<div class="container">
 
-<strong>Save More on Digital Work</strong>
-
+<div class="section-head reveal">
+<div class="eyebrow">What we do</div>
+<h2>Digital services for everyday work.</h2>
 <p>
-Eligible services may offer <b>up to 15% savings</b>
-compared with regular local shop rates.
-Actual charges depend on the service and work required.
+From documents and applications to professional digital work,
+SEVANTA keeps the process straightforward.
 </p>
-
-</div>
-
 </div>
 
 
-<div class="heading reveal">
+<div class="services-grid">
 
-<small>OUR SERVICES</small>
-
-<h2>
-Everything You Need,
-In One Place.
-</h2>
-
-<p>
-No complicated website forms. Simply contact SEVANTA
-and discuss the work you need.
-</p>
-
-</div>
-
-
-<div class="services" id="services">
-
-
-<div class="service reveal">
-<div class="icon">🪪</div>
+<div class="service-card reveal">
+<div class="icon">▣</div>
 <h3>PAN Card Assistance</h3>
 <p>
-Assistance with PAN applications, corrections and
-related documentation.
+Assistance with PAN-related online applications,
+corrections and document preparation.
 </p>
-<a href="#contact">CONTACT US →</a>
 </div>
 
-
-<div class="service reveal">
-<div class="icon">🏢</div>
+<div class="service-card reveal">
+<div class="icon">◫</div>
 <h3>GST Services</h3>
 <p>
-Assistance with GST registration and eligible
-GST-related documentation.
+General assistance with GST-related online work
+and documentation.
 </p>
-<a href="#contact">CONTACT US →</a>
 </div>
 
-
-<div class="service reveal">
-<div class="icon">🪪</div>
+<div class="service-card reveal">
+<div class="icon">◎</div>
 <h3>Aadhaar Assistance</h3>
 <p>
-Guidance regarding applicable Aadhaar-related
-processes and documentation.
+Guidance and assistance for eligible Aadhaar-related
+online services.
 </p>
-<a href="#contact">CONTACT US →</a>
 </div>
 
-
-<div class="service reveal">
-<div class="icon">📑</div>
-<h3>Certificate Assistance</h3>
+<div class="service-card reveal">
+<div class="icon">◇</div>
+<h3>Certificates</h3>
 <p>
-Caste, income, residence and other eligible
-certificate application assistance.
+Assistance with online processes for income,
+residence and caste certificate applications.
 </p>
-<a href="#contact">CONTACT US →</a>
 </div>
 
-
-<div class="service reveal">
-<div class="icon">⌨️</div>
-<h3>Typing & Letters</h3>
+<div class="service-card reveal">
+<div class="icon">↗</div>
+<h3>Online Applications</h3>
 <p>
-Applications, letters, document typing and
-professional formatting.
+Help with filling and preparing different online
+applications and forms.
 </p>
-<a href="#contact">CONTACT US →</a>
 </div>
 
-
-<div class="service reveal">
-<div class="icon">🌐</div>
-<h3>Hindi ↔ English</h3>
+<div class="service-card reveal">
+<div class="icon">▤</div>
+<h3>Document & Typing</h3>
 <p>
-Hindi to English and English to Hindi typing
-and translation assistance.
+Letters, applications, documents and other
+professional typing work.
 </p>
-<a href="#contact">CONTACT US →</a>
 </div>
 
+<div class="service-card reveal">
+<div class="icon">A↔अ</div>
+<h3>Translation</h3>
+<p>
+Hindi to English and English to Hindi translation
+for documents and general work.
+</p>
+</div>
 
-<div class="service reveal">
-<div class="icon">📄</div>
+<div class="service-card reveal">
+<div class="icon">CV</div>
 <h3>Resume & CV</h3>
 <p>
-Professional CV and resume preparation for
-jobs and applications.
+Clean and professional resumes designed for
+job applications.
 </p>
-<a href="#contact">CONTACT US →</a>
 </div>
 
-
-<div class="service reveal">
-<div class="icon">💻</div>
+<div class="service-card reveal">
+<div class="icon">⌘</div>
 <h3>Website Development</h3>
 <p>
-Business websites, landing pages and custom
-web projects.
+Modern, responsive websites for businesses,
+services and personal projects.
 </p>
-<a href="#contact">CONTACT US →</a>
 </div>
 
-
-<div class="service reveal">
-<div class="icon">⚡</div>
-<h3>Other Online Work</h3>
-<p>
-Have another digital requirement? Talk to us
-and discuss your work.
-</p>
-<a href="#contact">CONTACT US →</a>
 </div>
 
 </div>
 </section>
 
 
-<section id="process">
+<!-- ================= SAVINGS ================= -->
+
+<section class="savings">
 
 <div class="container">
 
-<div class="heading reveal">
+<div class="savings-box reveal">
 
-<small>HOW IT WORKS</small>
-
-<h2>
-Simple. Direct. Fast.
-</h2>
-
+<div>
+<h3>Get more value from your digital work.</h3>
 <p>
-No account. No document upload. No complicated forms.
+Eligible services may offer up to 15% savings compared with
+regular local shop rates. Actual charges depend on the service
+and work required.
 </p>
+</div>
+
+<button class="btn btn-light" onclick="openContact()">
+    CONTACT US
+</button>
 
 </div>
 
-<div class="process">
+</div>
+</section>
+
+
+<!-- ================= PROCESS ================= -->
+
+<section class="process" id="process">
+
+<div class="container">
+
+<div class="section-head reveal">
+<div class="eyebrow">Simple process</div>
+<h2>Three steps. No unnecessary complexity.</h2>
+<p>
+Tell us what you need and we will discuss the required details
+before starting the work.
+</p>
+</div>
+
+
+<div class="process-grid">
 
 <div class="process-card reveal">
-<div class="number">01</div>
+<div class="number">01 —</div>
 <h3>Tell Us Your Work</h3>
 <p>
-Contact SEVANTA and explain what service you need.
+Contact us and explain what digital work or assistance you need.
 </p>
 </div>
 
 <div class="process-card reveal">
-<div class="number">02</div>
+<div class="number">02 —</div>
 <h3>Discuss Details</h3>
 <p>
-We discuss requirements, process and applicable charges.
+We discuss the requirements, documents and applicable charges.
 </p>
 </div>
 
 <div class="process-card reveal">
-<div class="number">03</div>
+<div class="number">03 —</div>
 <h3>Get Assistance</h3>
 <p>
-We proceed with the requested work after confirmation.
+Once the required details are received, we proceed with the
+agreed digital work.
 </p>
 </div>
 
 </div>
+
 </div>
 </section>
 
 
-<section id="about">
+<!-- ================= ABOUT ================= -->
 
-<div class="container about">
+<section class="about" id="about">
 
-<div class="reveal">
+<div class="container about-grid">
 
-<h2>
-Digital Work Without The Hassle.
-</h2>
-
-<p>
-SEVANTA is an independent digital services and
-online assistance platform designed to make common
-digital work easier to access.
-</p>
-
-<p>
-For many typing, formatting and digital tasks,
-assistance can often be completed within 1–2 hours.
-Services involving external authorities may take longer
-depending on their official processing time.
-</p>
-
-</div>
-
-<div class="about-card reveal">
-
-<div>
-<strong>SEVANTA</strong>
+<div class="about-box reveal">
+<div class="big">SEVANTA</div>
 <p>Digital Work, Simplified.</p>
 </div>
 
-</div>
+<div class="about-content reveal">
 
-</div>
-</section>
+<div class="eyebrow">About SEVANTA</div>
 
-
-<section id="contact">
-
-<div class="container">
-
-<div class="contact-box reveal">
-
-<h2>
-Let's Talk.
-</h2>
-
-<p>
-Have some digital work? Contact SEVANTA directly
-and discuss your requirement.
-</p>
-
-<a href="mailto:aranavk635@gmail.com"
-class="btn primary">
-CONTACT US
-</a>
-
-</div>
-
-</div>
-</section>
-
-
-<footer>
-
-<div class="footer">
-
-<div>
-<div class="footer-logo">SEVANTA</div>
-<p>Digital Work, Simplified.</p>
-</div>
-
-<div>
-<p>Digital Services • Online Assistance</p>
-<p>Independent Service Provider</p>
-</div>
-
-</div>
-
-<div class="copy">
-© 2026 SEVANTA. All Rights Reserved.
-<br><br>
-SEVANTA is an independent digital assistance service
-and is not a government website.
-</div>
-
-</footer>
-
-
-<script>
-
-/* SCROLL REVEAL */
-
-const elements =
-document.querySelectorAll(".reveal");
-
-const observer =
-new IntersectionObserver(
-entries => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-entry.target.classList.add("show");
-}
-
-});
-
-},
-{
-threshold:.12
-}
-);
-
-elements.forEach(
-el => observer.observe(el)
-);
-
-
-/* 3D TOUCH / MOUSE */
-
-const card =
-document.getElementById("card");
-
-document.addEventListener(
-"mousemove",
-event => {
-
-if(!card) return;
-
-const x =
-(event.clientX / window.innerWidth - .5) * 18;
-
-const y =
-(event.clientY / window.innerHeight - .5) * -18;
-
-card.style.transform =
-`rotateX(${y}deg) rotateY(${x}deg)`;
-
-}
-);
-
-
-document.addEventListener(
-"touchmove",
-event => {
-
-if(!card || !event.touches.length) return;
-
-const x =
-(event.touches[0].clientX / window.innerWidth - .5) * 12;
-
-const y =
-(event.touches[0].clientY / window.innerHeight - .5) * -12;
-
-card.style.transform =
-`rotateX(${y}deg) rotateY(${x}deg)`;
-
-},
-{passive:true}
-);
-
-</script>
-
-</body>
-</html>
+<h2>Less confusion. More straigh
