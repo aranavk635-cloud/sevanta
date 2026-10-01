@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SEVANTA — Digital Work, Simplified</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",Arial,sans-serif;
+    background:#070912;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(72,116,255,.25),transparent 30%),
+        radial-gradient(circle at 85% 30%,rgba(171,92,255,.22),transparent 30%),
+        radial-gradient(circle at 50% 90%,rgba(0,211,255,.12),transparent 35%);
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(70,110,255,.08);
+    filter:blur(100px);
+    right:-180px;
+    top:25%;
+    z-index:-1;
+    animation:float 8s ease-in-out infinite alternate;
+}
+
+@keyframes float{
+    from{transform:translateY(-30px) scale(1)}
+    to{transform:translateY(50px) scale(1.15)}
+}
+
+/* HEADER */
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:18px 6%;
+    background:rgba(7,9,18,.68);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* LOGO */
+.logo{
+    position:relative;
+    color:white;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:5px;
+    display:inline-block;
+}
+
+.logo-line{
+    position:absolute;
+    left:-8px;
+    top:22px;
+    width:190px;
+    height:30px;
+    pointer-events:none;
+}
+
+.logo-line::before{
+    content:"Digital Work, Simplified";
+    position:absolute;
+    left:10px;
+    top:-9px;
+    font-family:"Great Vibes",cursive;
+    font-size:20px;
+    font-weight:400;
+    letter-spacing:0;
+    white-space:nowrap;
+    color:#69dcff;
+    transform:rotate(-8deg);
+    text-shadow:0 0 15px rgba(105,220,255,.35);
+}
+
+.logo-line::after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:12px;
+    width:205px;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#69dcff,#a77cff,transparent);
+    transform:rotate(-7deg);
+    box-shadow:0 0 10px rgba(105,220,255,.4);
+}
+
+/* NAV */
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+.nav-links a{
+    color:#cbd1e5;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.contact-btn{
+    padding:11px 20px;
+    border-radius:30px;
+    color:#fff!important;
+    background:linear-gradient(135deg,#5278ff,#965cff);
+    box-shadow:0 10px 30px rgba(82,120,255,.25);
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    padding:160px 7% 100px;
+    display:flex;
+    align-items:center;
+}
+
+.hero-container{
+    max-width:1250px;
+    width:100%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:70px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid rgba(90,220,255,.25);
+    border-radius:50px;
+    color:#68dcff;
+    background:rgba(90,220,255,.06);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(52px,7vw,92px);
+    line-height:.94;
+    letter-spacing:-5px;
+    margin-bottom:28px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#fff,#6fe1ff,#a77cff,#fff);
+    background-size:300%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:gradient 6s linear infinite;
+}
+
+@keyframes gradient{
+    from{background-position:0}
+    to{background-position:300%}
+}
+
+.hero p{
+    max-width:670px;
+    color:#a8aec2;
+    line-height:1.8;
+    font-size:17px;
+    margin-bottom:32px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:15px 25px;
+    border-radius:50px;
+    font-weight:700;
+    font-size:13px;
+    transition:.3s;
+}
+
+.primary{
+    color:#fff;
+    background:linear-gradient(135deg,#5278ff,#965cff);
+    box-shadow:0 15px 40px rgba(82,120,255,.25);
+}
+
+.primary:hover{
+    transform:translateY(-4px);
+}
+
+.secondary{
+    color:#fff;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.05);
+}
+
+/* 3D CARD */
+.scene{
+    perspective:1000px;
+}
+
+.card3d{
+    position:relative;
+    width:350px;
+    height:390px;
+    margin:auto;
+    transform-style:preserve-3d;
+    transition:transform .15s ease;
+}
+
+.main-card{
+    position:absolute;
+    inset:40px 20px;
+    border-radius:30px;
+    padding:35px;
+    background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.035));
+    border:1px solid rgba(255,255,255,.17);
+    backdrop-filter:blur(20px);
+    box-shadow:0 40px 80px rgba(0,0,0,.45);
+    transform:rotateX(8deg) rotateY(-10deg);
+}
+
+.main-card h2{
+    font-size:30px;
+    letter-spacing:3px;
+}
+
+.main-card p{
+    color:#aab1c8;
+    margin-top:10px;
+}
+
+.card-tag{
+    display:inline-block;
+    margin-top:40px;
+    padding:9px 14px;
+    border-radius:30px;
+    background:rgba(91,124,255,.15);
+    border:1px solid rgba(91,124,255,.25);
+    color:#70dcff;
+    font-size:12px;
+}
+
+.floating{
+    position:absolute;
+    padding:13px 17px;
+    border-radius:15px;
+    background:rgba(20,23,40,.9);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 20px 40px rgba(0,0,0,.3);
+    font-size:12px;
+}
+
+.f1{
+    right:-5px;
+    top:35px;
+}
+
+.f2{
+    left:-10px;
+    bottom:35px;
+}
+
+/* SECTIONS */
+section{
+    padding:110px 7%;
+}
+
+.container{
+    max-width:1250px;
+    margin:auto;
+}
+
+.heading{
+    text-align:center;
+    max-width:750px;
+    margin:0 auto 60px;
+}
+
+.heading small{
+    color:#68dcff;
+    letter-spacing:3px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.heading h2{
+    font-size:clamp(36px,5vw,60px);
+    line-height:1;
+    letter-spacing:-2px;
+    margin:15px 0;
+}
+
+.heading p{
+    color:#969db4;
+}
+
+/* DISCOUNT */
+.discount{
+    margin-bottom:70px;
+}
+
+.discount-box{
+    padding:25px;
+    border-radius:22px;
+    text-align:center;
+    background:linear-gradient(135deg,rgba(91,124,255,.13),rgba(155,92,255,.12));
+    border:1px solid rgba(120,150,255,.18);
+}
+
+.discount-box strong{
+    color:#72ddff;
+    font-size:24px;
+}
+
+/* SERVICES */
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.service{
+    min-height:245px;
+    padding:30px;
+    border-radius:24px;
+    background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.1);
+    transition:.35s;
+    transform-style:preserve-3d;
+}
+
+.service:hover{
+    transform:translateY(-10px) rotateX(3deg) rotateY(-3deg);
+    border-color:rgba(105,220,255,.3);
+    box-shadow:0 25px 50px rgba(0,0,0,.25);
+}
+
+.icon{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:16px;
+    background:linear-gradient(135deg,rgba(82,120,255,.22),rgba(150,92,255,.15));
+    font-size:24px;
+    margin-bottom:22px;
+}
+
+.service h3{
+    margin-bottom:10px;
+}
+
+.service p{
+    color:#9299af;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.service a{
+    display:inline-block;
+    margin-top:18px;
+    color:#68dcff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+}
+
+/* PROCESS */
+.process{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.process-card{
+    padding:30px;
+    border-left:1px solid rgba(255,255,255,.15);
+}
+
+.number{
+    color:#5c7cff;
+    font-size:40px;
+    font-weight:900;
+    margin-bottom:15px;
+}
+
+.process-card p{
+    color:#9299af;
+    font-size:14px;
+    margin-top:10px;
+}
+
+/* ABOUT */
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about h2{
+    font-size:clamp(40px,5vw,65px);
+    line-height:1;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+.about p{
+    color:#9ba2b8;
+    line-height:1.9;
+    margin-bottom:15px;
+}
+
+.about-card{
+    min-height:350px;
+    border-radius:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:linear-gradient(135deg,rgba(82,120,255,.16),rgba(155,92,255,.12));
+    border:1px solid rgba(255,255,255,.1);
+    transform:perspective(900px) rotateY(-7deg);
+}
+
+.about-card strong{
+    display:block;
+    font-size:55px;
+    letter-spacing:5px;
+}
+
+/* CONTACT */
+.contact-box{
+    text-align:center;
+    padding:80px 30px;
+    border-radius:35px;
+    background:linear-gradient(135deg,rgba(82,120,255,.16),rgba(155,92,255,.12));
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.contact-box h2{
+    font-size:clamp(40px,6vw,70px);
+    margin-bottom:20px;
+}
+
+.contact-box p{
+    color:#9ca3b8;
+    margin-bottom:30px;
+}
+
+/* FOOTER */
+footer{
+    padding:45px 7% 25px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.footer-logo{
+    font-size:27px;
+    font-weight:900;
+    letter-spacing:5px;
+}
+
+.footer p{
+    color:#747b91;
+    font-size:13px;
+    margin-top:8px;
+}
+
+.copy{
+    max-width:1250px;
+    margin:30px auto 0;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#62697e;
+    font-size:11px;
+}
+
+/* REVEAL */
+.reveal{
+    opacity:0;
+    transform:translateY(45px);
+    transition:.8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        padding-top:150px;
+    }
+
+    .hero-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .card3d{
+        transform:scale(.85);
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .about-card{
+        transform:none;
+    }
+
+    .footer{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<a href="#home" class="logo">
+SEVANTA
+<span class="logo-line"></span>
+</a>
+
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#process">Process</a>
+<a href="#about">About</a>
+<a href="#contact" class="contact-btn">CONTACT US</a>
+</div>
+
+</div>
+</header>
+
+
+<section class="hero" id="home">
+
+<div class="hero-container">
+
+<div class="reveal">
+
+<span class="badge">
+DIGITAL SERVICES • ONLINE ASSISTANCE
+</span>
+
+<h1>
+Your Work.<br>
+<span class="gradient">Made Simple.</span>
+</h1>
+
+<p>
+SEVANTA helps with everyday digital and documentation
+work — from PAN, GST and certificate assistance to
+typing, translation, resumes, online applications and
+professional website development.
+</p>
+
+<div class="buttons">
+
+<a href="#contact" class="btn primary">
+CONTACT US
+</a>
+
+<a href="#services" class="btn secondary">
+EXPLORE SERVICES
+</a>
+
+</div>
+
+</div>
+
+
+<div class="scene reveal">
+
+<div class="card3d" id="card">
+
+<div class="main-card">
+
+<h2>SEVANTA</h2>
+
+<p>Digital Work, Simplified.</p>
+
+<span class="card-tag">
+FAST • DIRECT • PROFESSIONAL
+</span>
+
+</div>
+
+<div class="floating f1">
+⚡ Fast Assistance
+</div>
+
+<div class="floating f2">
+✓ Direct Contact
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section>
+
+<div class="container discount reveal">
+
+<div class="discount-box">
+
+<strong>Save More on Digital Work</strong>
+
+<p>
+Eligible services may offer <b>up to 15% savings</b>
+compared with regular local shop rates.
+Actual charges depend on the service and work required.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="heading reveal">
+
+<small>OUR SERVICES</small>
+
+<h2>
+Everything You Need,
+In One Place.
+</h2>
+
+<p>
+No complicated website forms. Simply contact SEVANTA
+and discuss the work you need.
+</p>
+
+</div>
+
+
+<div class="services" id="services">
+
+
+<div class="service reveal">
+<div class="icon">🪪</div>
+<h3>PAN Card Assistance</h3>
+<p>
+Assistance with PAN applications, corrections and
+related documentation.
+</p>
+<a href="#contact">CONTACT US →</a>
+</div>
+
+
+<div class="service reveal">
+<div class="icon">🏢</div>
+<h3>GST Services</h3>
+<p>
+Assistance with GST registration and eligible
+GST-related documentation.
+</p>
+<a href="#contact">CONTACT US →</a>
+</div>
+
+
+<div class="service reveal">
+<div class="icon">🪪</div>
+<h3>Aadhaar Assistance</h3>
+<p>
+Guidance regarding applicable Aadhaar-related
+processes and documentation.
+</p>
+<a href="#contact">CONTACT US →</a>
+</div>
+
+
+<div class="service reveal">
+<div class="icon">📑</div>
+<h3>Certificate Assistance</h3>
+<p>
+Caste, income, residence and other eligible
+certificate application assistance.
+</p>
+<a href="#contact">CONTACT US →</a>
+</div>
+
+
+<div class="service reveal">
+<div class="icon">⌨️</div>
+<h3>Typing & Letters</h3>
+<p>
+Applications, letters, document typing and
+professional formatting.
+</p>
+<a href="#contact">CONTACT US →</a>
+</div>
+
+
+<div class="service reveal">
+<div class="icon">🌐</div>
+<h3>Hindi ↔ English</h3>
+<p>
+Hindi to English and English to Hindi typing
+and translation assistance.
+</p>
+<a href="#contact">CONTACT US →</a>
+</div>
+
+
+<div class="service reveal">
+<div class="icon">📄</div>
+<h3>Resume & CV</h3>
+<p>
+Professional CV and resume preparation for
+jobs and applications.
+</p>
+<a href="#contact">CONTACT US →</a>
+</div>
+
+
+<div class="service reveal">
+<div class="icon">💻</div>
+<h3>Website Development</h3>
+<p>
+Business websites, landing pages and custom
+web projects.
+</p>
+<a href="#contact">CONTACT US →</a>
+</div>
+
+
+<div class="service reveal">
+<div class="icon">⚡</div>
+<h3>Other Online Work</h3>
+<p>
+Have another digital requirement? Talk to us
+and discuss your work.
+</p>
+<a href="#contact">CONTACT US →</a>
+</div>
+
+</div>
+</section>
+
+
+<section id="process">
+
+<div class="container">
+
+<div class="heading reveal">
+
+<small>HOW IT WORKS</small>
+
+<h2>
+Simple. Direct. Fast.
+</h2>
+
+<p>
+No account. No document upload. No complicated forms.
+</p>
+
+</div>
+
+<div class="process">
+
+<div class="process-card reveal">
+<div class="number">01</div>
+<h3>Tell Us Your Work</h3>
+<p>
+Contact SEVANTA and explain what service you need.
+</p>
+</div>
+
+<div class="process-card reveal">
+<div class="number">02</div>
+<h3>Discuss Details</h3>
+<p>
+We discuss requirements, process and applicable charges.
+</p>
+</div>
+
+<div class="process-card reveal">
+<div class="number">03</div>
+<h3>Get Assistance</h3>
+<p>
+We proceed with the requested work after confirmation.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section id="about">
+
+<div class="container about">
+
+<div class="reveal">
+
+<h2>
+Digital Work Without The Hassle.
+</h2>
+
+<p>
+SEVANTA is an independent digital services and
+online assistance platform designed to make common
+digital work easier to access.
+</p>
+
+<p>
+For many typing, formatting and digital tasks,
+assistance can often be completed within 1–2 hours.
+Services involving external authorities may take longer
+depending on their official processing time.
+</p>
+
+</div>
+
+<div class="about-card reveal">
+
+<div>
+<strong>SEVANTA</strong>
+<p>Digital Work, Simplified.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section id="contact">
+
+<div class="container">
+
+<div class="contact-box reveal">
+
+<h2>
+Let's Talk.
+</h2>
+
+<p>
+Have some digital work? Contact SEVANTA directly
+and discuss your requirement.
+</p>
+
+<a href="mailto:aranavk635@gmail.com"
+class="btn primary">
+CONTACT US
+</a>
+
+</div>
+
+</div>
+</section>
+
+
+<footer>
+
+<div class="footer">
+
+<div>
+<div class="footer-logo">SEVANTA</div>
+<p>Digital Work, Simplified.</p>
+</div>
+
+<div>
+<p>Digital Services • Online Assistance</p>
+<p>Independent Service Provider</p>
+</div>
+
+</div>
+
+<div class="copy">
+© 2026 SEVANTA. All Rights Reserved.
+<br><br>
+SEVANTA is an independent digital assistance service
+and is not a government website.
+</div>
+
+</footer>
+
+
+<script>
+
+/* SCROLL REVEAL */
+
+const elements =
+document.querySelectorAll(".reveal");
+
+const observer =
+new IntersectionObserver(
+entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+elements.forEach(
+el => observer.observe(el)
+);
+
+
+/* 3D TOUCH / MOUSE */
+
+const card =
+document.getElementById("card");
+
+document.addEventListener(
+"mousemove",
+event => {
+
+if(!card) return;
+
+const x =
+(event.clientX / window.innerWidth - .5) * 18;
+
+const y =
+(event.clientY / window.innerHeight - .5) * -18;
+
+card.style.transform =
+`rotateX(${y}deg) rotateY(${x}deg)`;
+
+}
+);
+
+
+document.addEventListener(
+"touchmove",
+event => {
+
+if(!card || !event.touches.length) return;
+
+const x =
+(event.touches[0].clientX / window.innerWidth - .5) * 12;
+
+const y =
+(event.touches[0].clientY / window.innerHeight - .5) * -12;
+
+card.style.transform =
+`rotateX(${y}deg) rotateY(${x}deg)`;
+
+},
+{passive:true}
+);
+
+</script>
+
+</body>
+</html>
